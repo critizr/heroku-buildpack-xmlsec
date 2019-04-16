@@ -1,34 +1,34 @@
 #!/usr/bin/env bash
 
-set -e
+# set -e
 
-BUILD_DIR=$1
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-ZIP_PATH=$SCRIPT_DIR/../xmlsec.tar.gz
-# Create the install directory
+# BUILD_DIR=$1
+# SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# ZIP_PATH=$SCRIPT_DIR/../xmlsec.tar.gz
+# # Create the install directory
 
-INSTALL_PATH="${BUILD_DIR}/vendor/xmlsec1"
+# INSTALL_PATH="${BUILD_DIR}/vendor/xmlsec1"
 
-mkdir -p $INSTALL_PATH
+# mkdir -p $INSTALL_PATH
 
-# copy binary
+# # copy binary
 
-tar -zxf $ZIP_PATH -C $INSTALL_PATH
+# tar -zxf $ZIP_PATH -C $INSTALL_PATH
 
-# export path
+# # export path
 
-echo "-----> Exporting path"
+# echo "-----> Exporting path"
 
-PROFILE_PATH="$BUILD_DIR/.profile.d/xmlsec1.sh"
-mkdir -p $(dirname $PROFILE_PATH)
-echo 'export PATH="$PATH:vendor/xmlsec1/bin"' >> $PROFILE_PATH
-echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/xmlsec1/lib"' >> $PROFILE_PATH
+# PROFILE_PATH="$BUILD_DIR/.profile.d/xmlsec1.sh"
+# mkdir -p $(dirname $PROFILE_PATH)
+# echo 'export PATH="$PATH:vendor/xmlsec1/bin"' >> $PROFILE_PATH
+# echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:vendor/xmlsec1/lib"' >> $PROFILE_PATH
 
-echo "-----> Exporting flags"
+# echo "-----> Exporting flags"
 
-export LIBXMLSEC1=${INSTALL_PATH}
-export CFLAGS="-I${INSTALL_PATH}/include/xmlsec1"
+# export LIBXMLSEC1=${INSTALL_PATH}
+# export CFLAGS="-I${INSTALL_PATH}/include/xmlsec1"
 
-# finish
+# # finish
 
-echo "-----> Installed xmlsec1"
+# echo "-----> Installed xmlsec1"
